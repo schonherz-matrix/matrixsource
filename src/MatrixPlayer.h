@@ -6,6 +6,7 @@
 #include <mutex>
 #include <set>
 #include <thread>
+
 #include "MatrixAudioPlayer.h"
 #include "MatrixVideoPlayer.h"
 #include "muebtransmitter.h"
@@ -81,7 +82,7 @@ class MatrixPlayer {
   volatile bool videoEndedFlag;
   volatile bool audioEndedFlag;
 
-  MuebTransmitter transmitter;
+  MuebTransmitter& transmitter;
   MatrixVideoPlayer videoPlayer;
   VideoListener videoListener;
   MatrixAudioPlayer audioPlayer;

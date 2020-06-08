@@ -5,12 +5,16 @@
 #include <cmath>
 #include <exception>
 #include <iostream>
+
 #include "Q4XLoader.h"
 
 using namespace std;
 using namespace std::chrono;
 
-MatrixPlayer::MatrixPlayer() : videoListener(*this), audioListener(*this) {
+MatrixPlayer::MatrixPlayer()
+    : transmitter(MuebTransmitter::getInstance()),
+      videoListener(*this),
+      audioListener(*this) {
   audioEndedFlag = videoEndedFlag = false;
   videoPlayer.addListener(&videoListener);
   audioPlayer.addListener(&audioListener);
