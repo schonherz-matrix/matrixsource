@@ -15,6 +15,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
 add_compile_definitions(LIBMUEB_AS_DLL)
 
 find_package(
@@ -26,7 +28,23 @@ if(NOT DEFINED MATRIX_SIMPLE)
   find_package(libmueb 2.0 REQUIRED)
 endif()
 
-add_executable(${PROJECT_NAME} src/colorsender.cpp src/colorsender.h
-                               src/main.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Widgets
-                                              libmueb::muebtransmitter)
+find_package(FMOD REQUIRED)
+
+add_executable(
+  ${PROJECT_NAME}
+  src/main.cpp
+  src/MatrixAudioPlayer.cpp
+  src/MatrixAudioPlayer.h
+  src/MatrixPlayer.cpp
+  src/MatrixPlayer.h
+  src/MatrixPlayerWindow.cpp
+  src/MatrixPlayerWindow.h
+  src/MatrixPlayerWindow.ui
+  src/MatrixVideoPlayer.cpp
+  src/MatrixVideoPlayer.h
+  src/Q4XLoader.cpp
+  src/Q4XLoader.h)
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${FMOD_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME}
+                      PRIVATE Qt5::Widgets libmueb::muebtransmitter ${FMOD_LIBRARIES})
