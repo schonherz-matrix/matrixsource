@@ -31,7 +31,7 @@ endif()
 find_package(FMOD REQUIRED)
 
 add_executable(
-  ${PROJECT_NAME}
+  ${PROJECT_NAME} WIN32
   src/main.cpp
   src/MatrixAudioPlayer.cpp
   src/MatrixAudioPlayer.h
@@ -46,5 +46,6 @@ add_executable(
   src/Q4XLoader.h)
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${FMOD_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME}
-                      PRIVATE Qt5::Widgets libmueb::muebtransmitter ${FMOD_LIBRARIES})
+target_link_libraries(
+  ${PROJECT_NAME} PRIVATE Qt5::Widgets libmueb::muebtransmitter
+                          ${FMOD_LIBRARIES})
