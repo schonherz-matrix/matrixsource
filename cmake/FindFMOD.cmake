@@ -12,12 +12,12 @@ find_path(
     /opt/local # DarwinPorts
     /opt/csw # Blastwave
     /opt
-    "c:/Program Files (x86)/FMOD SoundSystem/FMOD Studio API Windows/api/lowlevel/inc/"
+    "c:/Program Files (x86)/FMOD SoundSystem/FMOD Studio API Windows/api/core/inc/"
 )
 
 find_library(
   FMOD_LIBRARY
-  NAMES libfmod fmod64
+  NAMES libfmod fmod_vc
   HINTS ENV FMOD_DIR
   PATH_SUFFIXES lib
   PATHS
@@ -29,7 +29,7 @@ find_library(
     /opt/local # DarwinPorts
     /opt/csw # Blastwave
     /opt
-    "c:/Program Files (x86)/FMOD SoundSystem/FMOD Studio API Windows/api/lowlevel/lib/"
+    "c:/Program Files (x86)/FMOD SoundSystem/FMOD Studio API Windows/api/core/lib/x64/"
 )
 
 set(FMOD_INCLUDE_DIRS "${FMOD_INCLUDE_DIR}")
