@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <mutex>
+
 #include "MatrixPlayer.h"
 
 class QStringListModel;

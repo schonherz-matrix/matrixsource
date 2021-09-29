@@ -1,5 +1,4 @@
 #include "MatrixPlayerWindow.h"
-#include "ui_MatrixPlayerWindow.h"
 
 #include <QFileDialog>
 #include <QGraphicsScene>
@@ -8,6 +7,8 @@
 #include <chrono>
 #include <cstdint>
 #include <iostream>
+
+#include "ui_MatrixPlayerWindow.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -246,7 +247,7 @@ void MatrixPlayerWindow::on_updateTimeIndicator() {
   bool expected = true;
   if (newFrame.compare_exchange_strong(expected, false)) {
     lock_guard<mutex> lk(frameMutex);
-    displayFrame(currentFrame);
+    //displayFrame(currentFrame);
   }
 }
 

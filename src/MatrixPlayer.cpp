@@ -12,7 +12,7 @@ using namespace std;
 using namespace std::chrono;
 
 MatrixPlayer::MatrixPlayer()
-    : transmitter(MuebTransmitter::getInstance()),
+    : transmitter(libmueb::MuebTransmitter::Instance()),
       videoListener(*this),
       audioListener(*this) {
   audioEndedFlag = videoEndedFlag = false;
@@ -21,7 +21,7 @@ MatrixPlayer::MatrixPlayer()
 
   // set presentation method
   videoPlayer.PresentFrame = [this](const QImage& frame) {
-    transmitter.sendFrame(frame);
+    transmitter.SendFrame(frame);
   };
 }
 

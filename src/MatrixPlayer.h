@@ -82,7 +82,7 @@ class MatrixPlayer {
   volatile bool videoEndedFlag;
   volatile bool audioEndedFlag;
 
-  MuebTransmitter& transmitter;
+  libmueb::MuebTransmitter& transmitter;
   MatrixVideoPlayer videoPlayer;
   VideoListener videoListener;
   MatrixAudioPlayer audioPlayer;
