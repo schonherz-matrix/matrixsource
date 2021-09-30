@@ -1,5 +1,7 @@
 #include "MatrixPlayer.h"
 
+#include <QDebug>
+#include <QElapsedTimer>
 #include <QImage>
 #include <chrono>
 #include <cmath>
@@ -21,7 +23,14 @@ MatrixPlayer::MatrixPlayer()
 
   // set presentation method
   videoPlayer.PresentFrame = [this](const QImage& frame) {
+    //    QElapsedTimer timer;
+    //    timer.start();
+
     transmitter.SendFrame(frame);
+
+    //    qDebug() << "The slow operation took" << timer.elapsed() <<
+    //    "milliseconds"
+    //             << timer.nsecsElapsed() << "nano";
   };
 }
 

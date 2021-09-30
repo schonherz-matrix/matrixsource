@@ -72,23 +72,23 @@ auto MatrixVideoPlayer::getState() const -> eState { return state; }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Load stuff
-bool MatrixVideoPlayer::load(std::string filePath) {
-  clear();
+// bool MatrixVideoPlayer::load(std::string filePath) {
+//  clear();
 
-  Q4XLoader loader;
-  frameTime = microseconds(33333);  // 30 FPS
+//  Q4XLoader loader;
+//  frameTime = microseconds(33333);  // 30 FPS
 
-  if (!loader.load(filePath)) {
-    return false;
-  }
-  loader.resample(frameTime);
-  frames = loader.getFrames();
-  width_ = loader.width();
-  height_ = loader.height();
+//  if (!loader.load(filePath)) {
+//    return false;
+//  }
+//  loader.resample(frameTime);
+//  frames = loader.getFrames();
+//  width_ = loader.width();
+//  height_ = loader.height();
 
-  state = STOPPED;
-  return true;
-}
+//  state = STOPPED;
+//  return true;
+//}
 
 bool MatrixVideoPlayer::load(const QImage* frames, size_t numFrames,
                              std::chrono::microseconds(frameTime)) {
